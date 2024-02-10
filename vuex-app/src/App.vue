@@ -1,16 +1,10 @@
 <template>
   <h1>App Root</h1>
-
   <hr />
-
   <Counter />
-
   <CounterButtons />
-
   <hr />
-
   <TodoInput />
-
   <TodoList />
 </template>
 
