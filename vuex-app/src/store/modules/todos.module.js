@@ -1,13 +1,12 @@
 export default {
-    state()
-    {
-        return {
-            Todos: []
-        }
+  state() {
+    return {
+      Todos: [],
+    };
+  },
+  actions: {
+    addTodo({ state }, payload) {
+      state.Todos.push(payload);
     },
-    actions: {
-        addTodo({state}, payload) {
-            state.Todos.push(payload)
-        }
-    }
-}
+  },
+};
