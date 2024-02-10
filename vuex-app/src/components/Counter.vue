@@ -1,3 +1,4 @@
+<!--Counter.vue-->
 <template>
   <h1>Counter</h1>
   <h2>{{ counter }}</h2>

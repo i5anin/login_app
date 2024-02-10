@@ -1,3 +1,4 @@
+<!--CounterButtons.vue-->
 <template>
   <button @click="minus">minus</button>
   <button @click="plus">plus</button>
