@@ -1,25 +1,21 @@
 <template>
-
   <h1>App Root</h1>
 
-  <hr>
+  <hr />
 
   <Counter />
 
   <CounterButtons />
 
-  <hr>
+  <hr />
 
   <TodoInput />
 
   <TodoList />
-
-
 </template>
 
 <script>
-
-import Counter from './components/Counter.vue'
+import Counter from "./components/Counter.vue";
 import CounterButtons from "./components/CounterButtons.vue";
 
 import TodoInput from "./components/TodoInput.vue";
@@ -30,13 +26,10 @@ export default {
     Counter,
     CounterButtons,
     TodoInput,
-    TodoList
-
+    TodoList,
   },
   created() {
-    console.log(this.$store)
-  }
-}
-
-
+    console.log(this.$store);
+  },
+};
 </script>
