@@ -1,3 +1,4 @@
+//index.js - store
 import { createStore } from "vuex";
 
 import CounterModule from "./modules/counter.module.js";
