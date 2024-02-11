@@ -1,8 +1,14 @@
-<!--TodoInput.vue-->
 <template>
   <h1>Todo</h1>
-  <input
-    type="text"
-    @change="$store.dispatch('addTodo', $event.target.value)"
-  />
+  <input type="text" @keyup.enter="addTodo($event.target.value)" />
 </template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions(["addTodo"]),
+  },
+};
+</script>
