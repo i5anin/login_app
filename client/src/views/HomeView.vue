@@ -1,5 +1,5 @@
 <template>
-<h1 v-if="Account">Hello {{ Account.username }}!</h1>
+  <h1 v-if="Account">Hello {{ Account.username }}!</h1>
   <hr>
 
   <button class="btn btn-danger" @click="logout">Logout</button>
@@ -15,15 +15,11 @@
   </div>
 
 
-
-
-
 </template>
 
 <script>
 export default {
-  data()
-  {
+  data() {
     return {
       Account: null
     }
@@ -38,22 +34,20 @@ export default {
 
     const token = localStorage.getItem('token_login')
 
-    if(token)
-    {
+    if (token) {
       let res = await fetch('http://localhost:5000/check-login', {
         method: 'post',
         headers: {'Content-type': 'application/json'},
-        body: JSON.stringify({ token })
+        body: JSON.stringify({token})
       })
 
       let res_data = await res.json()
 
-      if(res_data.status == 'ok')
+      if (res_data.status == 'ok')
         this.Account = res_data.body
       else
         this.logout()
-    }
-    else
+    } else
       this.logout()
 
 

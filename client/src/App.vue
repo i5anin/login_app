@@ -4,7 +4,7 @@
 
     <hr>
 
-    <router-view />
+    <router-view/>
   </div>
 
 
@@ -15,51 +15,45 @@
 import AboutView from './views/AboutView.vue'
 
 export default {
-    data()
-    {
-      return {
-        Account: null
-      }
-    },
-    async created()
-    {
-      const token = localStorage.getItem('token_login')
+  data() {
+    return {
+      Account: null
+    }
+  },
+  async created() {
+    const token = localStorage.getItem('token_login')
 
-      if(token)
-      {
-        let res = await fetch('http://localhost:5000/check-login', {
-          method: 'post',
-          headers: {'Content-type': 'application/json'},
-          body: JSON.stringify({ token })
-        })
+    if (token) {
+      let res = await fetch('http://localhost:5000/check-login', {
+        method: 'post',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({token})
+      })
 
-        let res_data = await res.json()
+      let res_data = await res.json()
 
-        if(res_data.status == 'ok')
-        {
-          console.log(res_data)
+      if (res_data.status == 'ok') {
+        console.log(res_data)
 
-          console.log(this.$router)
+        console.log(this.$router)
 
-          this.Account = res_data.body
+        this.Account = res_data.body
 
-        }
-      }
-
-     },
-    watch: {
-      Account() {
-
-        if (this.Account.role == 'admin')
-        {
-          console.log('updated watch')
-          this.$router.addRoute('home', {path: '/about', component: AboutView})
-        }
       }
     }
 
-}
+  },
+  watch: {
+    Account() {
 
+      if (this.Account.role == 'admin') {
+        console.log('updated watch')
+        this.$router.addRoute('home', {path: '/about', component: AboutView})
+      }
+    }
+  }
+
+}
 
 
 </script>
